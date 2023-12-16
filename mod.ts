@@ -19,7 +19,7 @@ export const error_handler = () => (next) => async (req: Request) => {
     }
 };
 
-const route = (method, path, code) => (next) => async (req: Request) => {
+export const route = (method, path, code) => (next) => async (req: Request) => {
     const pattern = new URLPattern(path, req.url);
     const match = pattern.exec(req.url);
     if (req.method === method && match !== null)
